@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Contact" description="Get in touch with Crostini and Java located in San Francisco.">
-	<div class="page-header">
+	<div class="page-header" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80'); background-position: center 60%;">
 		<div class="container text-center">
-			<h1 class="fade-in">Get in Touch</h1>
+			<h1 class="fade-in text-white">Get in Touch</h1>
 			<p class="fade-in text-large mt-4" style="animation-delay: 0.2s">We'd love to hear from you!</p>
 		</div>
 	</div>
@@ -77,14 +77,39 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	.page-header {
-		padding: calc(80px + var(--space-xl)) 0 var(--space-lg);
+		position: relative;
+		padding: calc(100px + var(--space-xl)) 0 var(--space-xl);
 		background-color: var(--color-bg);
-		border-bottom: 1px solid var(--color-border);
+		background-size: cover;
+		background-position: center;
+		color: var(--color-white);
+	}
+
+	.page-header::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(to bottom, rgba(44, 42, 41, 0.5) 0%, rgba(44, 42, 41, 0.8) 100%);
+		z-index: 1;
+	}
+
+	.page-header .container {
+		position: relative;
+		z-index: 2;
+	}
+	
+	.text-white {
+		color: var(--color-white);
+		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 	}
 
 	.text-large {
 		font-size: 1.25rem;
-		color: var(--color-text-light);
+		color: rgba(255, 255, 255, 0.9);
+		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 	}
 
 	.mt-4 { margin-top: 1rem; }
