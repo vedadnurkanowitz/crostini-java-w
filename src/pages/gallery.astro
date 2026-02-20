@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const images = [
+  {
+    src: "/images/cafe-interior.png",
+    alt: "Warm and inviting cafe interior",
+    delay: "0s"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80",
+    alt: "Sunny day at the cafe exterior",
+    delay: "0.1s"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&q=80",
+    alt: "Barista pouring over coffee",
+    delay: "0.2s"
+  },
+  {
+    src: "/images/latte-art.png",
+    alt: "Close up of beautiful latte art",
+    delay: "0.1s"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&q=80",
+    alt: "Delicious gourmet sandwich and coffee",
+    delay: "0.2s"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80",
+    alt: "Glass of red wine on a table",
+    delay: "0.3s"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80",
+    alt: "Freshly roasted coffee beans",
+    delay: "0.2s"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80",
+    alt: "Freshly baked butter croissant",
+    delay: "0.3s"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80",
+    alt: "Coffee and pastry flatlay",
+    delay: "0.4s"
+  }
+];
+---
+
+<Layout title="Gallery" description="Take a look inside Crostini & Java. View our beautiful space, delicious pastries, coffee, and wine.">
+	<div class="page-header">
+		<div class="container text-center">
+			<h1 class="fade-in">Gallery</h1>
+			<p class="fade-in text-large mt-4" style="animation-delay: 0.2s">A glimpse into our space and our craft.</p>
+		</div>
+	</div>
+
+	<section class="section gallery-section pb-0">
+		<div class="container">
+			<div class="gallery-masonry">
+        {images.map((image) => (
+          <div class="gallery-item slide-up" style={`animation-delay: ${image.delay}`}>
+            <div class="image-wrapper">
+              <img src={image.src} alt={image.alt} loading="lazy" class="gallery-image" />
+            </div>
+          </div>
+        ))}
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.page-header {
+		padding: calc(80px + var(--space-xl)) 0 var(--space-lg);
+		background-color: var(--color-white);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.text-large {
+		font-size: 1.25rem;
+		color: var(--color-text-light);
+	}
+
+	.mt-4 { margin-top: 1rem; }
+	.pb-0 { padding-bottom: 0; margin-bottom: var(--space-xl); }
+
+  .gallery-masonry {
+    column-count: 1;
+    column-gap: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .gallery-masonry {
+      column-count: 2;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gallery-masonry {
+      column-count: 3;
+    }
+  }
+
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+  }
+
+  .image-wrapper {
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: var(--color-border); /* Placeholder color while loading */
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .image-wrapper:hover .gallery-image {
+    transform: scale(1.05);
+  }
+</style>

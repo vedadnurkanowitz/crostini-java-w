@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MenuItem from '../components/MenuItem.astro';
+
+const icons = {
+  egg: "lucide:egg-fried",
+  leaf: "tabler:leaf",
+  bagel: "lucide:donut",
+  sandwich: "lucide:sandwich",
+  meat: "tabler:meat",
+  cheese: "tabler:cheese",
+  fish: "tabler:fish",
+  bread: "tabler:baguette",
+  tomato: "tabler:flower",
+  coffee: "tabler:coffee",
+  wine: "tabler:glass-full",
+};
+
+const breakfastItems = [
+  { title: "The Ultimate Breakfast Sandwich", description: "Toasted croissant, egg, ham, avocado, Swiss cheese, tomato, spinach, maple sauce", icon: icons.sandwich },
+  { title: "Avocado and Egg Toast", description: "Smashed avocado, soft boiled egg, chili flakes on sourdough", icon: icons.egg },
+  { title: "Classic Bagel", description: "Choice of plain, everything or wheat bagel with cream cheese", icon: icons.bagel }
+];
+
+const sandwhichItems = [
+  { title: "Chicken Pesto", description: "Toasted ciabatta roll, melted Swiss, baby arugula, tomatoes, red onion, pesto mayo", icon: icons.leaf },
+  { title: "Rosemary Chicken with Bacon", description: "Rosemary marinated chicken breast, crispy bacon, provolone, greens", icon: icons.meat },
+  { title: "Prosciutto and Mozzarella", description: "Thin sliced prosciutto, fresh mozzarella, balsamic glaze on baguette", icon: icons.cheese },
+  { title: "Ham and Cheese", description: "Black forest ham, cheddar, dijon mustard on sourdough", icon: icons.bread }
+];
+
+const crostiniItems = [
+  { title: "Salmon with Dill", description: "Smoked salmon, yogurt, red onion, cucumber, fresh dill", icon: icons.fish },
+  { title: "Salmon with Honey", description: "Smoked salmon, goat cheese, honey drizzle", icon: icons.fish },
+  { title: "Classic Bruschetta", description: "Diced tomatoes, garlic, basil, olive oil", icon: icons.tomato }
+];
+
+const drinkItems = [
+  { title: "House Coffee", description: "Freshly brewed local roast", icon: icons.coffee },
+  { title: "Espresso", description: "Double shot of premium espresso", icon: icons.coffee },
+  { title: "Specialty Lattes", description: "French Lavender, Peanut Butter, or Turmeric Latte", icon: icons.coffee },
+  { title: "Matcha Latte", description: "Premium ceremonial grade matcha with steamed milk", icon: icons.leaf },
+  { title: "Evening Drinks", description: "Pinot Noir, IPA, Sangria, Cuba Libre, Irish Coffee", icon: icons.wine }
+];
+---
+
+<Layout title="Menu" description="Explore the delicious menu at Crostini and Java. Breakfast, sandwiches, crostinis, and premium coffee.">
+	<div class="page-header">
+		<div class="container text-center">
+			<h1 class="fade-in">Our Menu</h1>
+			<p class="fade-in text-large mt-4" style="animation-delay: 0.2s">Freshly prepared all day.</p>
+		</div>
+	</div>
+
+	<section class="section menu-section pb-0">
+		<div class="container">
+			<div class="menu-grid">
+				
+				<!-- Breakfast Info -->
+				<div class="menu-category">
+					<h2 class="category-title">Breakfast All Day</h2>
+					<div class="category-items">
+						{breakfastItems.map((item, index) => (
+							<div class="slide-up" style={`animation-delay: ${index * 0.1}s`}>
+								<MenuItem title={item.title} description={item.description} icon={(item as any).icon} />
+							</div>
+						))}
+					</div>
+				</div>
+
+				<!-- Sandwiches Info -->
+				<div class="menu-category">
+					<h2 class="category-title">Gourmet Sandwiches</h2>
+					<div class="category-items">
+						{sandwhichItems.map((item, index) => (
+							<div class="slide-up" style={`animation-delay: ${0.2 + (index * 0.1)}s`}>
+								<MenuItem title={item.title} description={item.description} icon={(item as any).icon} />
+							</div>
+						))}
+					</div>
+				</div>
+
+				<!-- Crostinis Info -->
+				<div class="menu-category">
+					<h2 class="category-title">Crostini</h2>
+					<div class="category-items">
+						{crostiniItems.map((item, index) => (
+							<div class="slide-up" style={`animation-delay: ${0.4 + (index * 0.1)}s`}>
+								<MenuItem title={item.title} description={item.description} icon={(item as any).icon} />
+							</div>
+						))}
+					</div>
+				</div>
+
+				<!-- Drinks Info -->
+				<div class="menu-category">
+					<h2 class="category-title">Drinks & More</h2>
+					<div class="category-items">
+						{drinkItems.map((item, index) => (
+							<div class="slide-up" style={`animation-delay: ${0.6 + (index * 0.1)}s`}>
+								<MenuItem title={item.title} description={item.description} icon={(item as any).icon} />
+							</div>
+						))}
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.page-header {
+		padding: calc(80px + var(--space-xl)) 0 var(--space-lg);
+		background-color: var(--color-white);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.text-large {
+		font-size: 1.25rem;
+		color: var(--color-text-light);
+	}
+
+	.mt-4 { margin-top: 1rem; }
+	.pb-0 { padding-bottom: 0; margin-bottom: var(--space-xl); }
+
+	.menu-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 4rem 3rem;
+	}
+
+	.category-title {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+		padding-bottom: 1rem;
+		border-bottom: 2px solid var(--color-accent);
+		display: inline-block;
+	}
+
+	.category-items {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+</style>

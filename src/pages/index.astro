@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Layout title="Home">
+	<Hero />
+	
+	<section class="section about-preview">
+		<div class="container text-center max-w-content">
+			<h2 class="slide-up">Welcome to Crostini & Java</h2>
+			<div class="divider slide-up" style="animation-delay: 0.2s"></div>
+			<p class="slide-up mt-4 text-large" style="animation-delay: 0.3s">
+				Located at the heart of San Francisco, we serve freshly brewed espresso, 
+				house-made pastries, and gourmet sandwiches all day. As evening approaches, 
+				unwind with our curated selection of fine wines and crostinis.
+			</p>
+		</div>
+	</section>
+
+	<section class="section highlights bg-light">
+		<div class="container">
+			<div class="highlight-grid">
+				<div class="highlight-card slide-up" style="animation-delay: 0.1s">
+					<div class="icon-wrapper">
+						<Icon name="lucide:coffee" class="highlight-icon" />
+					</div>
+					<h3>Craft Coffee</h3>
+					<p>From perfectly pulled espressos to specialty lattes like French Lavender and Turmeric.</p>
+				</div>
+				<div class="highlight-card slide-up" style="animation-delay: 0.2s">
+					<div class="icon-wrapper">
+						<Icon name="lucide:sandwich" class="highlight-icon" />
+					</div>
+					<h3>Gourmet Sandwiches</h3>
+					<p>Savor our signature Chicken Pesto or a classic Prosciutto and Mozzarella on fresh bread.</p>
+				</div>
+				<div class="highlight-card slide-up" style="animation-delay: 0.3s">
+					<div class="icon-wrapper">
+						<Icon name="lucide:wine" class="highlight-icon" />
+					</div>
+					<h3>Evening Wine</h3>
+					<p>Join us later in the day for a relaxed atmosphere, featuring our selection of Pinot Noir and local IPAs.</p>
+				</div>
+			</div>
+			<div class="text-center mt-xl slide-up" style="animation-delay: 0.4s">
+				<a href="/menu" class="btn btn-outline">Explore Full Menu</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.max-w-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.divider {
+		width: 60px;
+		height: 3px;
+		background-color: var(--color-accent);
+		margin: 1.5rem auto;
+	}
+
+	.text-large {
+		font-size: 1.25rem;
+		color: var(--color-text-light);
+	}
+
+	.bg-light {
+		background-color: var(--color-white);
+	}
+
+	.highlight-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 3rem;
+	}
+
+	.highlight-card {
+		text-align: center;
+		padding: 2rem;
+		border-radius: 12px;
+		background-color: var(--color-bg);
+		transition: transform var(--transition-fast);
+	}
+
+	.highlight-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+	}
+
+	.icon-wrapper {
+		margin-bottom: 1.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.highlight-icon {
+		width: 48px;
+		height: 48px;
+		color: var(--color-text);
+		stroke-width: 1.5;
+	}
+
+	.highlight-card h3 {
+		margin-bottom: 1rem;
+	}
+
+	.highlight-card p {
+		color: var(--color-text-light);
+	}
+
+	.mt-4 { margin-top: 1.5rem; }
+	.mt-xl { margin-top: 4rem; }
+
+	.btn-outline {
+		background-color: transparent;
+		color: var(--color-text);
+		border: 2px solid var(--color-text);
+	}
+
+	.btn-outline:hover {
+		background-color: var(--color-text);
+		color: var(--color-white);
+	}
+</style>

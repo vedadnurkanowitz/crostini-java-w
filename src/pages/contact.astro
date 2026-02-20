@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact" description="Get in touch with Crostini and Java located in San Francisco.">
+	<div class="page-header">
+		<div class="container text-center">
+			<h1 class="fade-in">Get in Touch</h1>
+			<p class="fade-in text-large mt-4" style="animation-delay: 0.2s">We'd love to hear from you!</p>
+		</div>
+	</div>
+
+	<section class="section">
+		<div class="container">
+			<div class="contact-grid">
+				
+				<!-- Contact Info -->
+				<div class="contact-info fade-in" style="animation-delay: 0.3s">
+					<h2>Visit Us</h2>
+					<p class="mb-4">
+						Whether you're looking for a quick morning coffee, a relaxed lunch, or an evening glass of wine, our doors are open.
+					</p>
+
+					<div class="info-block">
+						<h3>Address</h3>
+						<p>899 Hyde Street<br />San Francisco, CA 94109</p>
+					</div>
+
+					<div class="info-block">
+						<h3>Reach Out</h3>
+						<p>
+							<a href="tel:415-872-9226">415-872-9226</a><br/>
+							<a href="mailto:info@crostiniandjava.com">info@crostiniandjava.com</a>
+						</p>
+					</div>
+
+					<div class="info-block">
+						<h3>Hours</h3>
+						<ul class="hours-list">
+							<li><span>Mon - Fri</span> <span>6:30 AM - 3:00 PM</span></li>
+							<li><span>Sat - Sun</span> <span>7:30 AM - 3:00 PM</span></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Contact Form -->
+				<div class="contact-form-wrapper fade-in" style="animation-delay: 0.4s">
+					<form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! (Mock implementation)');">
+						<div class="form-group">
+							<label for="name">Name <span class="required">*</span></label>
+							<input type="text" id="name" name="name" required placeholder="Your full name" />
+						</div>
+
+						<div class="form-group">
+							<label for="email">Email <span class="required">*</span></label>
+							<input type="email" id="email" name="email" required placeholder="your.email@example.com" />
+						</div>
+
+						<div class="form-group">
+							<label for="phone">Phone</label>
+							<input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" />
+						</div>
+
+						<div class="form-group">
+							<label for="message">Question or Comment <span class="required">*</span></label>
+							<textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+						</div>
+
+						<button type="submit" class="btn btn-full">Send Message</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.page-header {
+		padding: calc(80px + var(--space-xl)) 0 var(--space-lg);
+		background-color: var(--color-bg);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.text-large {
+		font-size: 1.25rem;
+		color: var(--color-text-light);
+	}
+
+	.mt-4 { margin-top: 1rem; }
+	.mb-4 { margin-bottom: 2rem; color: var(--color-text-light); line-height: 1.8; }
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 4rem;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	@media (min-width: 768px) {
+		.contact-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.contact-info {
+		padding-right: 2rem;
+	}
+
+	.contact-info h2 {
+		margin-bottom: 1.5rem;
+		font-size: 2.5rem;
+	}
+
+	.info-block {
+		margin-bottom: 2rem;
+	}
+
+	.info-block h3 {
+		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
+		color: var(--color-text);
+	}
+
+	.info-block p, .info-block a {
+		color: var(--color-text-light);
+	}
+
+	.info-block a:hover {
+		color: var(--color-accent);
+	}
+
+	.hours-list {
+		max-width: 300px;
+	}
+
+	.hours-list li {
+		display: flex;
+		justify-content: space-between;
+		padding: 0.5rem 0;
+		border-bottom: 1px dotted var(--color-border);
+		color: var(--color-text-light);
+	}
+
+	.contact-form-wrapper {
+		background-color: var(--color-white);
+		padding: 3rem 2rem;
+		border-radius: 12px;
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+	}
+
+	.form-group {
+		margin-bottom: 1.5rem;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-weight: 500;
+		color: var(--color-text);
+	}
+
+	.required {
+		color: #e74c3c;
+	}
+
+	input, textarea {
+		width: 100%;
+		padding: 1rem;
+		border: 1px solid var(--color-border);
+		border-radius: 6px;
+		font-family: inherit;
+		font-size: 1rem;
+		background-color: var(--color-bg);
+		transition: border-color var(--transition-fast);
+	}
+
+	input:focus, textarea:focus {
+		outline: none;
+		border-color: var(--color-accent);
+		background-color: var(--color-white);
+	}
+
+	.btn-full {
+		width: 100%;
+		margin-top: 1rem;
+	}
+</style>

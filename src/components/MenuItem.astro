@@ -1,0 +1,97 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  description: string;
+  price?: string;
+  icon?: string;
+}
+
+const { title, description, price, icon } = Astro.props;
+---
+
+<div class="menu-item-wrapper">
+  <div class="menu-item">
+    {icon && (
+      <div class="menu-icon-container">
+        <Icon name={icon} class="menu-icon" />
+      </div>
+    )}
+    <div class="menu-content">
+      <div class="menu-item-header">
+        <h4 class="menu-title">{title}</h4>
+        {price && <span class="menu-price">{price}</span>}
+      </div>
+      <p class="menu-desc">{description}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .menu-item-wrapper {
+    position: relative;
+    padding-bottom: 1.5rem;
+  }
+
+  .menu-item {
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all var(--transition-fast);
+    background: transparent;
+    display: flex;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .menu-content {
+    flex: 1;
+  }
+
+  .menu-item:hover {
+    background: var(--color-white);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+  }
+
+  .menu-title {
+    font-size: 1.125rem;
+    color: var(--color-text);
+  }
+
+  .menu-icon-container {
+    flex-shrink: 0;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    color: var(--color-text);
+  }
+
+  .menu-icon-container :global(svg) {
+    width: 100%;
+    height: auto;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    opacity: 0.8;
+  }
+
+  .menu-price {
+    font-family: var(--font-family-heading);
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .menu-desc {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+</style>

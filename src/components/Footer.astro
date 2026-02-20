@@ -1,0 +1,153 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer section">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Location & Contact -->
+      <div class="footer-col" style="animation-delay: 0.1s">
+        <h3 class="footer-heading">Visit Us</h3>
+        <p>899 Hyde Street<br />San Francisco, CA 94109</p>
+        <div class="contact-links mt-4">
+          <a href="tel:415-872-9226">415-872-9226</a><br/>
+          <a href="mailto:info@crostiniandjava.com">info@crostiniandjava.com</a>
+        </div>
+      </div>
+
+      <!-- Hours -->
+      <div class="footer-col" style="animation-delay: 0.2s">
+        <h3 class="footer-heading">Hours</h3>
+        <ul class="hours-list">
+          <li>
+            <span>Mon - Fri</span>
+            <span>6:30 AM - 3:00 PM</span>
+          </li>
+          <li>
+            <span>Sat - Sun</span>
+            <span>7:30 AM - 3:00 PM</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Links & Social -->
+      <div class="footer-col connect-col" style="animation-delay: 0.3s">
+        <h3 class="footer-heading">Connect</h3>
+        <ul class="social-links">
+          <li>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="social-link">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="social-link">
+              Facebook
+            </a>
+          </li>
+        </ul>
+        <div class="footer-brand mt-4">
+          <span class="logo-text">Crostini <span class="logo-amp">&</span> Java</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} Crostini & Java. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-border);
+    margin-top: auto; /* Push to bottom */
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+    }
+  }
+
+  .footer-heading {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .footer-col p,
+  .footer-col a,
+  .footer-col span {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+  }
+
+  .mt-4 {
+    margin-top: 1.5rem;
+  }
+
+  .contact-links a {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-links a:hover,
+  .social-links a:hover {
+    color: var(--color-accent);
+  }
+
+  .hours-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dotted var(--color-border);
+  }
+
+  .social-links li {
+    margin-bottom: 0.5rem;
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-brand {
+    font-family: var(--font-family-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .footer-brand .logo-amp {
+    color: var(--color-accent);
+  }
+
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 768px) {
+    .connect-col {
+      text-align: right;
+    }
+    
+    .connect-col .social-link {
+      flex-direction: row-reverse;
+    }
+  }
+</style>
